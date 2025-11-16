@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://YOUR_GITHUB_USERNAME.github.io/afolashade-portfolio/</loc></url>
+  <url><loc>/</loc></url>
+  <url><loc>/about.html</loc></url>
+  <url><loc>/publications.html</loc></url>
+  <url><loc>/contact.html</loc></url>
+  <url><loc>/services.html</loc></url>
+  <url><loc>/speaking.html</loc></url>
+  <url><loc>/makoko.html</loc></url>
+  <url><loc>/awori.html</loc></url>
 </urlset>
