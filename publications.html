@@ -36,31 +36,31 @@
           initMobileMenu();
         });
 
-        fetch("footer.html")
+      fetch("footer.html")
         .then((res) => res.text())
         .then((html) => {
           document.getElementById("footer").innerHTML = html;
         });
-      
+
       function initMobileMenu() {
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-        
+        const hamburger = document.getElementById("hamburger");
+        const mobileMenu = document.getElementById("mobileMenu");
+
         if (hamburger && mobileMenu) {
-          hamburger.addEventListener('click', () => {
-            const isActive = hamburger.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            document.body.classList.toggle('menu-open', isActive);
-            document.documentElement.classList.toggle('menu-open', isActive);
+          hamburger.addEventListener("click", () => {
+            const isActive = hamburger.classList.toggle("active");
+            mobileMenu.classList.toggle("active");
+            document.body.classList.toggle("menu-open", isActive);
+            document.documentElement.classList.toggle("menu-open", isActive);
           });
 
-          const menuLinks = mobileMenu.querySelectorAll('a');
-          menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-              hamburger.classList.remove('active');
-              mobileMenu.classList.remove('active');
-              document.body.classList.remove('menu-open');
-              document.documentElement.classList.remove('menu-open');
+          const menuLinks = mobileMenu.querySelectorAll("a");
+          menuLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+              hamburger.classList.remove("active");
+              mobileMenu.classList.remove("active");
+              document.body.classList.remove("menu-open");
+              document.documentElement.classList.remove("menu-open");
             });
           });
         }
@@ -70,7 +70,7 @@
       function initScrollAnimations() {
         const observerOptions = {
           threshold: 0.1,
-          rootMargin: "0px 0px -50px 0px"
+          rootMargin: "0px 0px -50px 0px",
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -130,6 +130,14 @@
               to education in flood prone settlements, and how to build
               durability and ownership into future projects.
             </p>
+            <br />
+            <h4>Why this matters</h4>
+            <p>
+              People should be able to participate fully in society, free from
+              prejudice, with real opportunities to learn and to choose their
+              path. Better governance and design make that possible.
+            </p>
+            <br/>
             <p>
               <a
                 href="ENCHANCING LOCAL DEVELOPMENT THROUGH SLUM UPGRADES BY AFOLASHADE JOY JUBRILLA.pdf"
@@ -148,6 +156,14 @@
               opening participation and protecting equal opportunity within
               party systems.
             </p>
+            <br />
+            <h4>Why this matters</h4>
+            <p>
+              People should be able to participate fully in society, free from
+              prejudice, with real opportunities to learn and to choose their
+              path. Better governance and design make that possible.
+            </p>
+            <br />
             <p>
               <a href="ISS_GDP_RP_2023_24_Jubrilla-Joy(1).pdf" class="btn-ghost"
                 >Download PDF</a

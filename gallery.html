@@ -135,5 +135,100 @@
     </section>
 
     <div id="footer"></div>
+    <script>
+(function() {
+  'use strict';
+  function createLightbox() {
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    
+    lightbox.innerHTML = `
+      <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+      <img class="lightbox-image" src="" alt="">
+      <div class="lightbox-caption"></div>
+    `;
+    
+    document.body.appendChild(lightbox);
+    return lightbox;
+  }
+
+  // Initialize lightbox
+  function initLightbox() {
+    const lightbox = createLightbox();
+    const lightboxImg = lightbox.querySelector('.lightbox-image');
+    const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+    const galleryImages = document.querySelectorAll('.gallery-grid figure');
+
+    // Open lightbox
+    function openLightbox(img, caption) {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxCaption.textContent = img.alt || '';
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('no-scroll');
+      
+      // Focus close button for accessibility
+      setTimeout(() => closeBtn.focus(), 100);
+    }
+
+    // Close lightbox
+    function closeLightbox() {
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('no-scroll');
+      lightboxImg.src = '';
+    }
+
+    // Add click handlers to gallery images
+    galleryImages.forEach(figure => {
+      figure.addEventListener('click', (e) => {
+        const img = figure.querySelector('img');
+        if (img) {
+          openLightbox(img);
+        }
+      });
+
+      // Keyboard accessibility
+      figure.setAttribute('tabindex', '0');
+      figure.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const img = figure.querySelector('img');
+          if (img) {
+            openLightbox(img);
+          }
+        }
+      });
+    });
+
+    // Close button click
+    closeBtn.addEventListener('click', closeLightbox);
+
+    // Click outside image to close
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    // Escape key to close
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.getAttribute('aria-hidden') === 'false') {
+        closeLightbox();
+      }
+    });
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLightbox);
+  } else {
+    initLightbox();
+  }
+})();
+    </script>
   </body>
 </html>
