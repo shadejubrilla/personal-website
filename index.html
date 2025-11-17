@@ -64,7 +64,7 @@
       function initScrollAnimations() {
         const observerOptions = {
           threshold: 0.1,
-          rootMargin: "0px 0px -50px 0px"
+          rootMargin: "0px 0px -50px 0px",
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -108,20 +108,151 @@
       }
     </script>
 
-    <div class="landing-hero">
-      <div class="landing-brand">
-        <h1 class="landing-brand-name">Afolashade Joy Jubrilla</h1>
+    <section class="hero-slider" aria-label="Featured story slides">
+      <a href="home.html" class="btn landing-btn">See More About Me</a>
+
+      <div class="slides">
+        <figure class="slide is-active">
+          <img
+            src="images/smile.jpg"
+            alt="Afolashade smiling warmly, welcoming visitors"
+          />
+          <figcaption>
+            <h1>Afolashade Joy Jubrilla</h1>
+            <p>
+              KYC Analyst • AML/CTF Specialist • Risk & Compliance Professional
+            </p>
+            <blockquote>
+              “Hi, I’m Afolashade—building human-centered compliance and leaving
+              people better than I found them.”
+            </blockquote>
+          </figcaption>
+        </figure>
+        <figure class="slide">
+          <div class="landing-overlay"></div>
+          <img
+            src="images/logo-bg.jpg"
+            alt="Afolashade seated in a modern office with brand wall"
+          />
+          <figcaption>
+            <h2>Practical, Protective Compliance</h2>
+            <p>
+              Turning regulation into clear, usable processes that protect
+              customers and institutions.
+            </p>
+          </figcaption>
+        </figure>
+        <figure class="slide">
+          <div class="landing-overlay"></div>
+          <img
+            src="images/office.jpg"
+            alt="Afolashade working at a laptop in the office"
+            width="50"
+            height="50"
+          />
+          <figcaption>
+            <h2>From Policy to Practice</h2>
+            <p>
+              Evidence, documentation, escalation paths—designed for speed and
+              accuracy.
+            </p>
+          </figcaption>
+        </figure>
+        <figure class="slide">
+          <div class="landing-overlay"></div>
+          <img
+            src="images/hero.jpg"
+            alt="Afolashade in a green dress, poised and professional"
+          />
+          <figcaption>
+            <h2>Leadership with Integrity</h2>
+            <p>Empathy, excellence, and outcomes you can measure.</p>
+          </figcaption>
+        </figure>
+        <figure class="slide">
+          <div class="landing-overlay"></div>
+          <img
+            src="images/thoughtful.jpg"
+            alt="Afolashade thoughtful, hand on chin"
+          />
+          <figcaption>
+            <h2>Strategic & Resilient</h2>
+            <p>
+              Risk awareness and continuity planning that keep teams moving.
+            </p>
+          </figcaption>
+        </figure>
+        <figure class="slide">
+          <img
+            src="images/about.jpg"
+            alt="Afolashade in black blazer, composed"
+          />
+          <figcaption>
+            <h2>Mentor & Advocate</h2>
+            <p>
+              Guiding young professionals, empowering girls, and championing
+              education.
+            </p>
+          </figcaption>
+        </figure>
+        <figure class="slide">
+          <div class="landing-overlay"></div>
+          <img src="images/candid.jpg" alt="Afolashade candid, laughing" />
+          <figcaption>
+            <h2>Real & Approachable</h2>
+            <p>Values-driven, people-first, and always learning.</p>
+          </figcaption>
+        </figure>
       </div>
-      <div class="landing-image">
-        <img src="images/portrait1.jpg" alt="Afolashade Joy Jubrilla" />
-        <div class="landing-overlay"></div>
-      </div>
-      <div class="landing-content">
-        <blockquote class="landing-quote">
-          "You earn an eternal name not by your wealth but by your impact on people's lives"
-        </blockquote>
-        <a href="home.html" class="btn landing-btn">See More About Me</a>
-      </div>
-    </div>
+      <button class="nav prev" aria-label="Previous slide">‹</button>
+      <button class="nav next" aria-label="Next slide">›</button>
+      <div class="dots" role="tablist" aria-label="Slide navigation"></div>
+    </section>
+
+    <script>
+      (function () {
+        const slider = document.querySelector(".hero-slider");
+        const slides = Array.from(slider.querySelectorAll(".slide"));
+        const prev = slider.querySelector(".prev");
+        const next = slider.querySelector(".next");
+        const dotsWrap = slider.querySelector(".dots");
+        let i = 0,
+          timer;
+        slides.forEach((_, idx) => {
+          const b = document.createElement("button");
+          b.setAttribute("role", "tab");
+          b.setAttribute("aria-label", "Go to slide " + (idx + 1));
+          b.addEventListener("click", () => go(idx, true));
+          dotsWrap.appendChild(b);
+        });
+        function render() {
+          slides.forEach((s, idx) =>
+            s.classList.toggle("is-active", idx === i)
+          );
+          dotsWrap.querySelectorAll("button").forEach((d, idx) => {
+            d.setAttribute("aria-selected", idx === i ? "true" : "false");
+          });
+        }
+        function go(to, stopAuto) {
+          i = (to + slides.length) % slides.length;
+          render();
+          if (stopAuto) reset();
+        }
+        function nextSlide() {
+          go(i + 1);
+        }
+        function prevSlide() {
+          go(i - 1);
+        }
+        function reset() {
+          clearInterval(timer);
+          timer = setInterval(nextSlide, 5000);
+        }
+        prev.addEventListener("click", () => go(i - 1, true));
+        next.addEventListener("click", () => go(i + 1, true));
+        render();
+        reset();
+      })();
+    </script>
   </body>
 </html>
