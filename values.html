@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Services — Afolashade Joy Jubrilla</title>
+    <meta
+      name="description"
+      content="Fixed-scope offerings for KYC, AML and operational resilience with clear deliverables."
+    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <script>
+      fetch("nav.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("navbar").innerHTML = html;
+          initMobileMenu();
+        });
+
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("footer").innerHTML = html;
+        });
+
+      function initMobileMenu() {
+        const hamburger = document.getElementById("hamburger");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        if (hamburger && mobileMenu) {
+          hamburger.addEventListener("click", () => {
+            const isActive = hamburger.classList.toggle("active");
+            mobileMenu.classList.toggle("active");
+            document.body.classList.toggle("menu-open", isActive);
+            document.documentElement.classList.toggle("menu-open", isActive);
+          });
+
+          const menuLinks = mobileMenu.querySelectorAll("a");
+          menuLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+              hamburger.classList.remove("active");
+              mobileMenu.classList.remove("active");
+              document.body.classList.remove("menu-open");
+              document.documentElement.classList.remove("menu-open");
+            });
+          });
+        }
+      }
+
+      function initScrollAnimations() {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll("section").forEach((section) => {
+          observer.observe(section);
+        });
+
+        document.querySelectorAll(".section-head").forEach((head) => {
+          observer.observe(head);
+        });
+
+        document.querySelectorAll(".card").forEach((card, index) => {
+          observer.observe(card);
+        });
+
+        document.querySelectorAll(".metric").forEach((metric, index) => {
+          observer.observe(metric);
+        });
+      }
+
+      document.documentElement.classList.add("js-enabled");
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initScrollAnimations);
+      } else {
+        initScrollAnimations();
+      }
+    </script>
+    <section id="values-in-action">
+      <div class="container">
+        <div class="section-head">
+          <h2>Values in action</h2>
+          <p class="section-sub">How principles become measurable results.</p>
+        </div>
+
+        <!-- Metrics strip -->
+        <div class="values-metrics">
+          <div class="vm-card">
+            <div class="vm-icon">📊</div>
+            <p class="vm-number">15,000+</p>
+            <p class="vm-label">
+              Customer accounts remediated with complete evidence
+            </p>
+          </div>
+          <div class="vm-card">
+            <div class="vm-icon">✅</div>
+            <p class="vm-number">30%</p>
+            <p class="vm-label">Reduction in incomplete KYC submissions</p>
+          </div>
+          <div class="vm-card">
+            <div class="vm-icon">🕒</div>
+            <p class="vm-number">100%</p>
+            <p class="vm-label">
+              Continuity of KYC operations during disruptions
+            </p>
+          </div>
+          <div class="vm-card">
+            <div class="vm-icon">👥</div>
+            <p class="vm-number">10+ years</p>
+            <p class="vm-label">
+              Experience across risk, fraud, and governance
+            </p>
+          </div>
+        </div>
+
+        <!-- Value cards -->
+        <div class="cards values-cards">
+          <article class="card">
+            <div class="vc-icon">🤝</div>
+            <h3>Dignity in every review</h3>
+            <p>
+              In every KYC review and escalation I protect both regulatory
+              expectations and the dignity of each customer. I treat each
+              profile as a person and not only as a file.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="vc-icon">🧭</div>
+            <h3>Integrity in decisions</h3>
+            <p>
+              When I identified a politically exposed profile that tried to move
+              through the process, I followed the facts, supported the
+              escalation, and helped the team avoid a serious breach.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="vc-icon">🌍</div>
+            <h3>Inclusion in governance</h3>
+            <p>
+              My research on the Awori community and on Makoko reflects my
+              belief that fair systems must include real voices. I study how
+              access, representation, and design affect daily life.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="vc-icon">📚</div>
+            <h3>Empathy in community work</h3>
+            <p>
+              In my work in Makoko I listened to teachers, parents, and
+              children. I saw how education and safe learning spaces can change
+              a child’s path, even in very hard conditions.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="vc-icon">🛡️</div>
+            <h3>Accountability in fraud prevention</h3>
+            <p>
+              In fraud and claims I rely on complete documentation, clear rules,
+              and honest communication. This protects customers, reduces loss,
+              and builds trust with regulators and partners.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="vc-icon">🧩</div>
+            <h3>Clarity and structure</h3>
+            <p>
+              The SharePoint checklist I designed reduced incomplete KYC
+              requests by more than thirty percent and removed confusion between
+              branches and central processing.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="vc-icon">🚀</div>
+            <h3>Growth for teams</h3>
+            <p>
+              Through The FastTrack Station and mentorship programs I support
+              analysts and young professionals so they grow in confidence,
+              skill, and responsibility.
+            </p>
+          </article>
+          <article class="card">
+            <div class="vc-icon">💡</div>
+            <h3>Service as a constant</h3>
+            <p>
+              Whether I am working on fraud, KYC, policy, or advocacy, my
+              question is the same. Did this action serve people, protect them,
+              and move them forward.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <div id="footer"></div>
+  </body>
+</html>

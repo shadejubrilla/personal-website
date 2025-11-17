@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Testimonials and Reviews — Afolashade Joy Jubrilla</title>
+    <meta
+      name="description"
+      content="Fixed-scope offerings for KYC, AML and operational resilience with clear deliverables."
+    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <script>
+      fetch("nav.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("navbar").innerHTML = html;
+          initMobileMenu();
+        });
+
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("footer").innerHTML = html;
+        });
+
+      function initMobileMenu() {
+        const hamburger = document.getElementById("hamburger");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        if (hamburger && mobileMenu) {
+          hamburger.addEventListener("click", () => {
+            const isActive = hamburger.classList.toggle("active");
+            mobileMenu.classList.toggle("active");
+            document.body.classList.toggle("menu-open", isActive);
+            document.documentElement.classList.toggle("menu-open", isActive);
+          });
+
+          const menuLinks = mobileMenu.querySelectorAll("a");
+          menuLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+              hamburger.classList.remove("active");
+              mobileMenu.classList.remove("active");
+              document.body.classList.remove("menu-open");
+              document.documentElement.classList.remove("menu-open");
+            });
+          });
+        }
+      }
+
+      function initScrollAnimations() {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll("section").forEach((section) => {
+          observer.observe(section);
+        });
+
+        document.querySelectorAll(".section-head").forEach((head) => {
+          observer.observe(head);
+        });
+
+        document.querySelectorAll(".card").forEach((card, index) => {
+          observer.observe(card);
+        });
+
+        document.querySelectorAll(".metric").forEach((metric, index) => {
+          observer.observe(metric);
+        });
+      }
+
+      document.documentElement.classList.add("js-enabled");
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initScrollAnimations);
+      } else {
+        initScrollAnimations();
+      }
+    </script>
+    <section id="ratings">
+      <div class="container">
+        <div class="section-head">
+          <h2>Reviews</h2>
+          <p class="section-sub">
+            Trusted and rated 5 stars by colleagues and partners.
+          </p>
+        </div>
+        <div class="cards">
+          <div class="card testimonial">
+            <h3>Blessing Daniel</h3>
+            <p>Customer Support Specialist</p>
+            <blockquote>
+              "I had the pleasure of reporting directly to Joy. Her exceptional
+              ability to translate customer into actionable product requirements
+              is truly impressive. Joy's strategic thinking and attention to
+              details were instrumental in driving successful product
+              development initiatives. <br />
+              Beyond her technical expertise, Joy's empathetic approach to
+              customer service fosters strong relationships and drives customer
+              loyalty. Her ability to effectively manage complex situations and
+              deliver exceptional results is commendable. <br />
+              I wholeheartedly recommend Joy for any role requiring a blend of
+              strategic thinking, customer retention, customer focus and strong
+              execution."
+            </blockquote>
+          </div>
+
+          <div class="card testimonial">
+            <h3>Oluwatoyin Okeniyi, MBA, CPA, CGA, FCCA</h3>
+            <p>Finance Professional</p>
+            <blockquote>
+              "I have had the pleasure of working with Joy and her expertise in
+              defining product requirements and delivering outstanding customer
+              service is truly impressive. <br />
+              Joy has a knack for turning customer needs into clear, actionable
+              product plans that consistently aligns with business goals and
+              exceed expectations. Her strategic insight and attention to
+              details ensure that every product development is a success. <br />
+              In customer service, Joy stands out with her empathy,
+              professionalism and problem-solving skills. She handles every
+              interaction with care, ensuring customers feel valued and
+              supported. Joy's dedication to customer satisfaction has driven
+              both loyalty and positive feedback. <br />
+              In short, Joy combines technical excellence with exceptional
+              interpersonal skills, making her a valuable asset to any team."
+            </blockquote>
+            <!-- View More button will be automatically added by JavaScript -->
+          </div>
+
+          <div class="card testimonial">
+            <h3>Ibrahim Momoh</h3>
+            <p>Relationship Manager & Financial Analyst</p>
+            <blockquote>
+              "Joy is an exceptional Banker who consistently delivers
+              personalized solutions with a customer-centric approach, going
+              above and beyond to exceed client expectations. Her expertise,
+              professionalism and dedication to building strong relationships
+              make her a standout performer. <br />
+              I highly recommend Joy for any role requiring results-driven and
+              collaborative expertise. She's an asset to any organization."
+            </blockquote>
+          </div>
+
+          <div class="card testimonial">
+            <h3>Dotun Oyedeji</h3>
+            <p>CEO, Waverider Services Ltd.</p>
+            <blockquote>
+              "Folashade provided me with exceptional service at Polaris Bank,
+              showcasing her professionalism, prompt responses, and personalized
+              solutions. <br />She addressed my concerns, ensured seamless
+              banking experiences, and demonstrated impressive expertise in
+              credit risk management and relationship management. <br />I highly
+              recommend her to anyone seeking top-notch relationship management
+              and customer retention services - she's a true gem!""
+            </blockquote>
+          </div>
+
+          <div class="card testimonial">
+            <h3>Taofiq Aminu</h3>
+            <p>Group Head, Polaris Bank</p>
+            <blockquote>
+              "I wholeheartedly recommend Folashade, who reported directly to me
+              during her time at Polaris Bank. <br />
+
+              She was an invaluable member of our Business Development and
+              Relationship Management team, consistently demonstrating
+              exceptional skills, dedication, and a commitment to excellence.
+              <br />
+
+              Folashade's achievements were impressive, including developing and
+              executing successful business growth strategies, building strong
+              client relationships, and identifying new opportunities to drive
+              revenue growth. Her strategic thinking, excellent communication
+              skills, and passion for excellence make her a valuable asset to
+              any organization. <br />
+
+              I highly recommend her for any business development, relationship
+              management, or leadership role, and I’m confident she will drive
+              business growth and success in any team she joins."
+            </blockquote>
+          </div>
+
+          <div class="card testimonial">
+            <h3>Ayokunle Ayoko</h3>
+            <p>Board Governance & Legal Advisor</p>
+            <blockquote>
+              "Folashade is a standout professional in business development and
+              relationship management. <br />
+
+              She excels in building strong relationships, driving revenue
+              growth, and thinking strategically. <br />
+
+              Her commitment to excellence has yielded impressive results,
+              including significant revenue increases in her previous roles. I
+              highly recommend her!"
+            </blockquote>
+          </div>
+          <div class="card testimonial">
+            <img
+              src="images/testimonial-dee.jpg"
+              alt="LinkedIn message from De'Airra Belcher praising Afolashade's insights on fraud prevention"
+              class="testimonial-image"
+              data-caption="De'Airra Belcher - LinkedIn message about fraud prevention insights"
+            />
+          </div>
+
+          <div class="card testimonial">
+            <img
+              src="images/testimonial-award.jpg"
+              alt="WhatsApp message recognizing Afolashade as Most influential and supportive female in CC family 2025"
+              class="testimonial-image"
+              data-caption="Recognition as Most Influential and Supportive Female in CC Family 2025"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Reviews Lightbox Functionality
+      (function () {
+        "use strict";
+
+        function createReviewLightbox() {
+          const lightbox = document.createElement("div");
+          lightbox.className = "review-lightbox";
+          lightbox.setAttribute("aria-hidden", "true");
+          lightbox.setAttribute("role", "dialog");
+          lightbox.setAttribute("aria-modal", "true");
+
+          lightbox.innerHTML = `
+      <div class="review-lightbox-content">
+        <button class="review-lightbox-close" aria-label="Close review">&times;</button>
+        <div class="review-lightbox-header">
+          <h3 class="review-lightbox-name"></h3>
+          <p class="review-lightbox-title"></p>
+        </div>
+        <blockquote class="review-lightbox-quote"></blockquote>
+      </div>
+    `;
+
+          document.body.appendChild(lightbox);
+          return lightbox;
+        }
+
+        // Truncate text to specified number of words
+        function truncateText(text, wordLimit) {
+          const cleanText = text
+            .replace(/<[^>]*>/g, " ")
+            .replace(/\s+/g, " ")
+            .trim();
+          const words = cleanText.split(" ");
+
+          if (words.length <= wordLimit) {
+            return cleanText;
+          }
+
+          return words.slice(0, wordLimit).join(" ") + "...";
+        }
+
+        function initReviewLightbox() {
+          const lightbox = createReviewLightbox();
+          const lightboxName = lightbox.querySelector(".review-lightbox-name");
+          const lightboxTitle = lightbox.querySelector(
+            ".review-lightbox-title"
+          );
+          const lightboxQuote = lightbox.querySelector(
+            ".review-lightbox-quote"
+          );
+          const closeBtn = lightbox.querySelector(".review-lightbox-close");
+          const testimonials = document.querySelectorAll(".testimonial");
+
+          const WORD_LIMIT = 20;
+
+          testimonials.forEach((testimonial, index) => {
+            const name = testimonial.querySelector("h3")?.textContent || "";
+            const title = testimonial.querySelector("p")?.textContent || "";
+            const blockquote = testimonial.querySelector("blockquote");
+
+            if (!blockquote) return;
+
+            const fullText = blockquote.innerHTML;
+            const truncatedText = truncateText(
+              blockquote.textContent,
+              WORD_LIMIT
+            );
+
+            const needsTruncation =
+              blockquote.textContent.split(" ").length > WORD_LIMIT;
+
+            if (needsTruncation) {
+              blockquote.setAttribute("data-full-content", fullText);
+              blockquote.setAttribute("data-name", name);
+              blockquote.setAttribute("data-title", title);
+
+              blockquote.textContent = truncatedText;
+
+              const viewMoreBtn = document.createElement("button");
+              viewMoreBtn.className = "view-more-btn";
+              viewMoreBtn.textContent = "View More";
+              viewMoreBtn.setAttribute(
+                "aria-label",
+                `Read full review from ${name}`
+              );
+
+              blockquote.parentNode.insertBefore(
+                viewMoreBtn,
+                blockquote.nextSibling
+              );
+
+              viewMoreBtn.addEventListener("click", () => {
+                openReviewLightbox(name, title, fullText);
+              });
+            }
+          });
+
+          function openReviewLightbox(name, title, content) {
+            lightboxName.textContent = name;
+            lightboxTitle.textContent = title;
+            lightboxQuote.innerHTML = content;
+
+            lightbox.setAttribute("aria-hidden", "false");
+            document.body.classList.add("no-scroll");
+
+            setTimeout(() => closeBtn.focus(), 100);
+          }
+
+          function closeReviewLightbox() {
+            lightbox.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("no-scroll");
+          }
+
+          closeBtn.addEventListener("click", closeReviewLightbox);
+
+          lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox) {
+              closeReviewLightbox();
+            }
+          });
+
+          document.addEventListener("keydown", (e) => {
+            if (
+              e.key === "Escape" &&
+              lightbox.getAttribute("aria-hidden") === "false"
+            ) {
+              closeReviewLightbox();
+            }
+          });
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", initReviewLightbox);
+        } else {
+          initReviewLightbox();
+        }
+        function createImageLightbox() {
+          const lightbox = document.createElement("div");
+          lightbox.className = "image-testimonial-lightbox";
+          lightbox.setAttribute("aria-hidden", "true");
+          lightbox.setAttribute("role", "dialog");
+          lightbox.setAttribute("aria-modal", "true");
+
+          lightbox.innerHTML = `
+      <button class="image-lightbox-close" aria-label="Close image">&times;</button>
+      <div class="image-lightbox-container">
+        <img class="image-lightbox-img" src="" alt="">
+        <div class="image-lightbox-caption"></div>
+      </div>
+    `;
+
+          document.body.appendChild(lightbox);
+          return lightbox;
+        }
+
+        // Initialize image testimonial lightbox
+        function initImageTestimonialLightbox() {
+          const lightbox = createImageLightbox();
+          const lightboxImg = lightbox.querySelector(".image-lightbox-img");
+          const lightboxCaption = lightbox.querySelector(
+            ".image-lightbox-caption"
+          );
+          const closeBtn = lightbox.querySelector(".image-lightbox-close");
+
+          // Find all image testimonials (images within testimonial cards)
+          const testimonialImages = document.querySelectorAll(
+            ".testimonial-image, .testimonial img"
+          );
+
+          // Add click handlers to all testimonial images
+          testimonialImages.forEach((img) => {
+            // Make image clickable
+            img.style.cursor = "pointer";
+            img.setAttribute("tabindex", "0");
+            img.setAttribute("role", "button");
+            img.setAttribute("aria-label", "Click to view full size image");
+
+            // Click handler
+            img.addEventListener("click", (e) => {
+              e.stopPropagation();
+              openImageLightbox(img);
+            });
+
+            // Keyboard accessibility
+            img.addEventListener("keydown", (e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                openImageLightbox(img);
+              }
+            });
+          });
+
+          // Open lightbox
+          function openImageLightbox(img) {
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt || "Testimonial image";
+
+            // Set caption if available
+            const caption = img.getAttribute("data-caption") || img.alt || "";
+            lightboxCaption.textContent = caption;
+            lightboxCaption.style.display = caption ? "block" : "none";
+
+            lightbox.setAttribute("aria-hidden", "false");
+            document.body.classList.add("no-scroll");
+
+            // Focus close button for accessibility
+            setTimeout(() => closeBtn.focus(), 100);
+          }
+
+          // Close lightbox
+          function closeImageLightbox() {
+            lightbox.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("no-scroll");
+            lightboxImg.src = "";
+          }
+
+          // Close button click
+          closeBtn.addEventListener("click", closeImageLightbox);
+
+          // Click outside image to close
+          lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox) {
+              closeImageLightbox();
+            }
+          });
+
+          // Escape key to close
+          document.addEventListener("keydown", (e) => {
+            if (
+              e.key === "Escape" &&
+              lightbox.getAttribute("aria-hidden") === "false"
+            ) {
+              closeImageLightbox();
+            }
+          });
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === "loading") {
+          document.addEventListener(
+            "DOMContentLoaded",
+            initImageTestimonialLightbox
+          );
+        } else {
+          initImageTestimonialLightbox();
+        }
+      })();
+    </script>
+    <div id="footer"></div>
+  </body>
+</html>
